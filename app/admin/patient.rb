@@ -1,8 +1,11 @@
-ActiveAdmin.register User do
+ActiveAdmin.register Patient do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-  permit_params :first_name, :last_name, :admin
+  permit_params :name, :age, :phone, :popular_insurance_id,
+    :popular_insurance_id, :medical_query, :gender, :transportation,
+    :home_visit, :specialty_id, :diagnosis_id, :clinic_id,
+    :counter_reference_id, :reference_date
 #
 # or
 #
