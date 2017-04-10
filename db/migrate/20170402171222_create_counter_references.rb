@@ -1,9 +1,0 @@
-class CreateCounterReferences < ActiveRecord::Migration[5.0]
-  def change
-    create_table :counter_references do |t|
-      t.string :name
-
-      t.timestamps
-    end
-  end
-end

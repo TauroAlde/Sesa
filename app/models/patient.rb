@@ -1,9 +1,8 @@
 class Patient < ApplicationRecord
-  belongs_to :specialty
-  belongs_to :parent_clinic, class_name: "Clinic", foreign_key: :parent_clinic_id
-  belongs_to :destination_clinic, class_name: "Clinic", foreign_key: :destination_clinic_id
+  has_many :clinical_references
+  has_many :clinical_counter_references, through: :clinical_references
 
-  enum medical_query: [:urgencia, :consulta_exterior] # Urgencia o Concult. Ext.
   enum gender: [:masculino, :femenino]
-  enum counter_reference: [:sano, :enfermo]
+
+  accepts_nested_attributes_for :clinical_references, allow_destroy: false
 end
