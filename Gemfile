@@ -32,8 +32,10 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
+gem 'pry'
 
 gem 'activeadmin', github: 'activeadmin'
+gem 'active_admin_datetimepicker', git: "https://github.com/alexisraca/active_admin_datetimepicker.git"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

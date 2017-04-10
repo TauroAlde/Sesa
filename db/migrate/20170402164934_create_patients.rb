@@ -1,15 +1,18 @@
 class CreatePatients < ActiveRecord::Migration[5.0]
   def change
     create_table :patients do |t|
-      t.string :name
+      t.string :first_name 
+      t.string :father_last_name 
+      t.string :mother_last_name
+
       t.string :folio
       t.integer :age
       t.integer :phone
       t.integer :popular_insurance_id
+      t.text :diagnosis             # enumerable
      
       t.integer :medical_query      # enumerable
       t.integer :gender             # enumerable
-      t.integer :diagnosis          # enumerable
       t.integer :counter_reference  # enumerable
       t.datetime :counter_reference_date # datetime field
 
