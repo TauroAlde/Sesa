@@ -6,8 +6,8 @@ class CreatePatients < ActiveRecord::Migration[5.0]
       t.string :mother_last_name
 
       t.integer :age
-      t.integer :phone
-      t.integer :popular_insurance_id
+      t.integer :phone, limit: 8
+      t.integer :popular_insurance_id, limit: 8
 
       t.integer :gender             # enumerable
 

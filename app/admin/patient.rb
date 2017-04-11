@@ -37,5 +37,20 @@ ActiveAdmin.register Patient do
     end
     f.actions
   end
-
+  #las referencias y contra referencias
+  sidebar "Referencia", only: :show do
+    attributes_table_for patient do
+      row :diagnosis
+      row :destination_clinic
+      row :clinical_reference_date
+    end
+  end
+  sidebar "Contra Referencia", only: :show do
+    attributes_table_for patient do
+      row :description
+      row :clinical_reference_id
+      row :completed_date
+    end
+  end
+  #end de la referecnia y contrareferencia
 end
