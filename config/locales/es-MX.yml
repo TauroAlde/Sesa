@@ -1,0 +1,48 @@
+es-MX:
+  activerecord: 
+      models: 
+        clinic: 
+          one: "Clinica" 
+          other: "Clinicas"
+        specialty:
+          one : "Especialidad"
+          other: "Especialidades"
+        patient: 
+          one: "Paciente" 
+          other: "Pacientes"
+        clinical_references:
+          one: "Referencia"
+          other: "Referencias"
+        clinical_counter_reference:
+          one: "Contra Referencia"
+          other: "Contra Referencias"
+      attributes:
+        clinic:
+          name: "Nombre"
+          address: "Dirección"
+        specialty:
+          one : "Especialidad"
+          other: "Especialidades"
+        specialty:
+          name: "Nombre"
+          description: "Descripción"
+        patient:
+          first_name: "Nombre"
+          father_last_name: "Apellido Paterno"
+          mother_last_name: "Apellido Materno"
+          age: "Años"
+          gander: "Sexo"
+          popular_insurance_id: "No. Seguro Popular"
+          phone: "Telefono"
+        clinical_reference:
+          folio: "No. de Folio"
+          diagnosis: "Diagnostico"
+          medical_query: "Consulta Medica"
+          transportation: "Transporte"
+          home_visit: "Visita a Casa"
+          specialty: "Especialidad"
+          clinical_reference_date: "Fecha de Referencia"
+        clinical_counter_reference:
+          description: "Descripción"
+          completed_date: "Fecha Completado"
+          clinical_reference_id: "Referencia"

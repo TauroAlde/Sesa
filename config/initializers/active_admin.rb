@@ -1,6 +1,9 @@
 ActiveAdmin.setup do |config|
   # == Site Title
   #
+  config.before_filter do
+    I18n.locale = 'es-MX'
+  end
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
