@@ -12,6 +12,20 @@ ActiveAdmin.register ClinicalReference do
 #   permitted
 # end
 
+  controller do
+    def create
+      super do |format|
+        redirect_to admin_patient_path(resource.patient) and return if resource.valid?
+      end
+    end
+    
+    def update
+      super do |format|
+        redirect_to admin_patient_clinical_reference_path(resource.patient, resource) and return if resource.valid?
+      end
+    end
+  end
+
   permit_params :folio, :diagnosis, :medical_query, :transportation, :clinical_reference_date,
                 :home_visit, :patient_id, :specialty_id, :parent_clinic_id,  :destination_clinic
   form do |f|   
