@@ -36,7 +36,7 @@ es-MX:
         first_name: "Nombre"
         father_last_name: "Apellido Paterno"
         mother_last_name: "Apellido Materno"
-        age: "Años"
+        age: "Edad"
         gender: "Sexo"
         popular_insurance_id: "No. Seguro Popular"
         phone: "Telefono"

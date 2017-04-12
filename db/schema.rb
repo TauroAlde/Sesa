@@ -81,8 +81,8 @@ ActiveRecord::Schema.define(version: 20170410190622) do
     t.string   "father_last_name"
     t.string   "mother_last_name"
     t.integer  "age"
-    t.integer  "phone"
-    t.integer  "popular_insurance_id"
+    t.bigint   "phone"
+    t.bigint   "popular_insurance_id"
     t.integer  "gender"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
