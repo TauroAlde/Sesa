@@ -76,7 +76,7 @@ ActiveAdmin.register Patient do
         if clinical_reference.clinical_counter_reference
           link_to "Ver detalles", admin_patient_clinical_reference_path(patient)
         else
-          link_to "Hacer contra referencia", new_admin_clinical_reference_clinical_counter_reference_path(clinical_reference)
+          link_to "Hacer contrarreferencia", new_admin_clinical_reference_clinical_counter_reference_path(clinical_reference)
         end
       end
     end

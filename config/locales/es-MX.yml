@@ -1,38 +1,43 @@
 es-MX:
   activerecord: 
-    models: 
+    models:
+      user:
+        one: "Usuario"
+        other: "Usuarios"
+      comment:
+        one: "Comentario"
+        other: "Comentarios"
       clinic: 
-        one: "Clinica" 
-        other: "Clinicas"
+        one: "Centro de Salud" 
+        other: "Centros de Salud"
       specialty:
         one : "Especialidad"
         other: "Especialidades"
       patient: 
         one: "Paciente" 
         other: "Pacientes"
-      clinical_references:
+      clinical_reference:
         one: "Referencia"
         other: "Referencias"
       clinical_counter_reference:
-        one: "Contra Referencia"
-        other: "Contra Referencias"
+        one: "Contrarreferencia"
+        other: "Contrarreferencias"
     attributes:
       clinic:
+        patients: "Paciente"
         name: "Nombre"
         address: "Dirección"
         created_at: "Fecha de Creación"
         updated_at: "Fecha de Actualizacón"
       specialty:
-        one : "Especialidad"
-        other: "Especialidades"
-        created_at: "Fecha de Creación"
-        updated_at: "Fecha de Actualizacón"
-      specialty:
+        patients: "Pacientes"
         name: "Nombre"
         description: "Descripción"
         created_at: "Fecha de Creación"
         updated_at: "Fecha de Actualizacón"
       patient:
+        clinical_references: "Referencia"
+        clinical_counter_references: "Contrarreferencia"
         first_name: "Nombre"
         father_last_name: "Apellido Paterno"
         mother_last_name: "Apellido Materno"
@@ -44,20 +49,24 @@ es-MX:
         updated_at: "Fecha de Actualizacón"
       clinical_reference:
         folio: "No. de Folio"
-        diagnosis: "Diagnostico"
-        medical_query: "Consulta Medica"
-        transportation: "Transporte"
-        home_visit: "Visita a Casa"
+        diagnosis: "Diagnóstico"
+        medical_query: "Consulta Médica"
+        transportation: "Traslado"
+        home_visit: "Visita a Domiciliaria"
         specialty: "Especialidad"
         clinical_reference_date: "Fecha de Referencia"
+        completed_date: "Fecha Completado"
         created_at: "Fecha de Creación"
         updated_at: "Fecha de Actualizacón"
+        counter_reference: "Contrarreferencia"
+        actions: "Acciones"
       clinical_counter_reference:
-        description: "Descripción"
         completed_date: "Fecha Completado"
+        description: "Diagnóstico"
         clinical_reference_id: "Referencia"
         created_at: "Fecha de Creación"
         updated_at: "Fecha de Actualizacón"
+        clinical_reference: "Referencia"
     
     errors:
       messages:
