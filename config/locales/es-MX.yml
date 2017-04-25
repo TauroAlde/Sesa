@@ -1,9 +1,24 @@
 es-MX:
+  formtastic:
+    :yes: 'Si'
+    :no: 'No'
+    :create: 'Crear %{model}'
+    :update: 'Actualizar %{model}'
+    :submit: 'Enviar %{model}'
+    :cancel: 'Cancelar %{model}'
+    :reset: 'Resetear %{model}'
+    :required: 'Requerido'
   activerecord: 
     models:
+      references_diagnostic:
+        one: "Diagnosticos de referencia"
+        other: "Diagnosticos de referencias"
       user:
         one: "Usuario"
         other: "Usuarios"
+      diagnostic:
+        one: "Diagnóstico"
+        other: "Diagnósticos"
       comment:
         one: "Comentario"
         other: "Comentarios"
@@ -23,6 +38,11 @@ es-MX:
         one: "Contrarreferencia"
         other: "Contrarreferencias"
     attributes:
+      diagnostic:
+        name: "Nombre"
+        description: "Descripción"
+        created_at: "Fecha de Creación"
+        updated_at: "Fecha de Actualizacón"
       clinic:
         patients: "Paciente"
         name: "Nombre"
@@ -49,7 +69,7 @@ es-MX:
         updated_at: "Fecha de Actualizacón"
       clinical_reference:
         folio: "No. de Folio"
-        diagnosis: "Diagnóstico"
+        diagnostic : "Diagnóstico"
         medical_query: "Consulta Médica"
         transportation: "Traslado"
         home_visit: "Visita a Domiciliaria"
@@ -67,6 +87,9 @@ es-MX:
         created_at: "Fecha de Creación"
         updated_at: "Fecha de Actualizacón"
         clinical_reference: "Referencia"
+      reference:
+        diagnostic: "Diagnóstico"
+        Diagnostic: "Diagnóstico"
     
     errors:
       messages:
