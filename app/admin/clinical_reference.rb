@@ -26,12 +26,18 @@ ActiveAdmin.register ClinicalReference do
     end
   end
 
-  permit_params :folio, :diagnosis, :medical_query, :transportation, :clinical_reference_date,
-                :home_visit, :patient_id, :specialty_id, :parent_clinic_id,  :destination_clinic
-  form do |f|   
+  permit_params :folio, :medical_query, :transportation, :clinical_reference_date,
+                :home_visit, :patient_id, :specialty_id, :parent_clinic_id, :destination_clinic,
+                references_diagnostics_attributes: [:diagnostic_id, :id]
+  form do |f|
     f.inputs do
       f.input :folio
-      f.input :diagnosis
+      f.inputs do
+        f.object.references_diagnostics.build if f.object.new_record?
+        f.has_many :references_diagnostics do |h|
+          h.input :diagnostic, label: "Diagnóstico"
+        end
+      end
       f.input :medical_query # enumera
       
       f.input :transportation
@@ -45,11 +51,27 @@ ActiveAdmin.register ClinicalReference do
     end
     f.actions
   end
+  index do
+    selectable_column
+    column :folio
+    column :diagnostic
+    column :medical_query
+    column :transportation
+    column :home_visit
+  end
 
   show do
     attributes_table do
       row :folio
-      row :diagnosis
+      row :diagnostic do |clinical_reference|
+        diagnostics_names = []
+
+        clinical_reference.diagnostics.each do |diagnostic|
+          diagnostics_names << diagnostic.name
+        end
+
+        diagnostics_names.join(", ")
+      end
       row :medical_query
       row :transportation
       row :home_visit

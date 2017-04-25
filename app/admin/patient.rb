@@ -3,7 +3,13 @@ ActiveAdmin.register Patient do
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
   permit_params :first_name, :father_last_name, :mother_last_name, :age, :phone,
-                :popular_insurance_id, :gender, clinical_references_attributes: [:id, :folio, :diagnosis, :medical_query, :transportation, :home_visit, :specialty_id, :parent_clinic_id, :destination_clinic_id, :clinical_reference_date]
+                :popular_insurance_id, :gender,
+                clinical_references_attributes:
+                  [
+                    :id, :folio, :diagnostic, :medical_query, :transportation,
+                    :home_visit, :specialty_id, :parent_clinic_id, :destination_clinic_id,
+                    :clinical_reference_date
+                  ]
 
   action_item :new_reference, only: :show do
     link_to "Nueva Referencia", new_admin_patient_clinical_reference_path(patient)
@@ -25,7 +31,10 @@ ActiveAdmin.register Patient do
 
         f.has_many :clinical_references, heading: "Referencia", new_record: false, allow_destroy: false do |d|
           d.input :folio
-          d.input :diagnosis
+          d.object.references_diagnostics.build if f.object.new_record?
+          d.has_many :references_diagnostics do |h|
+            h.input :diagnostic
+          end
           d.input :medical_query # enumer
         
           d.input :transportation
@@ -81,7 +90,16 @@ ActiveAdmin.register Patient do
       end
     end
   end
+
   
+  filter :clinical_references_folio_eq, label: "No. Folio"
+  filter :first_name
+  filter :father_last_name
+  filter :mother_last_name
+  filter :age
+  filter :gender
+  filter :popular_insurance_id
+  filter :phone
   #sidebar "Referencia", only: :show do
   #  attributes_table_for patient do
   #    row :diagnosis
