@@ -47,12 +47,7 @@ ActiveAdmin.register ClinicalCounterReference do
   show do
     attributes_table do
       row :diagnostic do |clinical_counter_reference|
-        diagnostics_names = []
-        clinical_counter_reference.diagnostics.each do |diagnostic|
-          diagnostics_names << diagnostic.name
-        end
-
-        diagnostics_names.join(", ")
+        clinical_counter_reference.diagnostics.map{|diagnostics|diagnostics.name}.join(", ")
       end
     end
   end
