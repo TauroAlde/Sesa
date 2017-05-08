@@ -64,7 +64,7 @@ ActiveAdmin.register ClinicalReference do
     attributes_table do
       row :folio
       row :diagnostic do |clinical_reference|
-        clinical_reference.diagnostics.map{|diagnostics|diagnostics.name}.join(", ")
+        clinical_reference.diagnostics.map{ |diagnostics| diagnostics.name }.join(", ")
       end
       row :medical_query
       row :transportation

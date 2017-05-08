@@ -47,7 +47,7 @@ ActiveAdmin.register ClinicalCounterReference do
   show do
     attributes_table do
       row :diagnostic do |clinical_counter_reference|
-        clinical_counter_reference.diagnostics.map{|diagnostics|diagnostics.name}.join(", ")
+        clinical_counter_reference.diagnostics.map{ |diagnostics| diagnostics.name }.join(", ")
       end
     end
   end
