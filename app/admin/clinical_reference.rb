@@ -64,13 +64,7 @@ ActiveAdmin.register ClinicalReference do
     attributes_table do
       row :folio
       row :diagnostic do |clinical_reference|
-        diagnostics_names = []
-
-        clinical_reference.diagnostics.each do |diagnostic|
-          diagnostics_names << diagnostic.name
-        end
-
-        diagnostics_names.join(", ")
+        clinical_reference.diagnostics.map(&:name).join(", ")
       end
       row :medical_query
       row :transportation

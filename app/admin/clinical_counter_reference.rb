@@ -1,7 +1,7 @@
 ActiveAdmin.register ClinicalCounterReference do
   belongs_to :clinical_reference, collection_name: :clinical_counter_reference
 
-  permit_params :clinical_reference_id, :description, :completed_date
+  permit_params :clinical_reference_id, :description, :completed_date, references_diagnostics_attributes: [:diagnostic_id, :id]
 
   controller do
     def scoped_collection # this prevents the bug with the relationship
@@ -36,10 +36,20 @@ ActiveAdmin.register ClinicalCounterReference do
   form do |f|
     f.inputs do
       f.input :clinical_reference_id, as: :hidden
-      f.input :description
+        f.object.references_diagnostics.build if f.object.new_record?
+        f.has_many :references_diagnostics do |h|
+          h.input :diagnostic, label: "Diagnóstico"
+        end
       f.input :completed_date, as: :date_time_picker, datepicker_options: { setLocale: "es" }
     end
     f.actions
+  end
+  show do
+    attributes_table do
+      row :diagnostic do |clinical_counter_reference|
+        clinical_counter_reference.diagnostics.map(&:name).join(", ")
+      end
+    end
   end
 
 end

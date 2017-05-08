@@ -1,5 +1,5 @@
 class Patient < ApplicationRecord
-  has_many :clinical_references
+  has_many :clinical_references, dependent: :destroy
   has_many :clinical_counter_references, through: :clinical_references
 
   validates :popular_insurance_id, length: { maximum: 10 }
