@@ -8,7 +8,7 @@ ActiveAdmin.register Patient do
                   [
                     :id, :folio, :diagnostic, :medical_query, :transportation,
                     :home_visit, :specialty_id, :parent_clinic_id, :destination_clinic_id,
-                    :clinical_reference_date
+                    :clinical_reference_date, references_diagnostics_attributes: [:diagnostic_id, :id]
                   ]
 
   action_item :new_reference, only: :show do
