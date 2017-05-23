@@ -11,6 +11,7 @@ class Ability
       cannot :read, Diagnostic
       cannot :read, Clinic
       cannot :read, Specialty
+      can :manage, Patient
     end
   end
 end
