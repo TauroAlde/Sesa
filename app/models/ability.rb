@@ -7,6 +7,10 @@ class Ability
       can :manage, :all
     else
       can :read, :all
+      cannot :read, User
+      cannot :read, Diagnostic
+      cannot :read, Clinic
+      cannot :read, Specialty
     end
   end
 end

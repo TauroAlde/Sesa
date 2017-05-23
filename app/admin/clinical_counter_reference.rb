@@ -1,4 +1,7 @@
 ActiveAdmin.register ClinicalCounterReference do
+  def authorized?(action, subject = nil)
+    user.admin?
+  end
   belongs_to :clinical_reference, collection_name: :clinical_counter_reference
 
   permit_params :clinical_reference_id, :description, :completed_date, references_diagnostics_attributes: [:diagnostic_id, :id]

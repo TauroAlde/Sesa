@@ -203,6 +203,7 @@ es-MX:
   errors:
     format: "%{attribute} %{message}"
     messages:
+      access_denied: Acceso denegado
       accepted: debe ser aceptado
       blank: no puede estar en blanco
       present: debe estar en blanco
